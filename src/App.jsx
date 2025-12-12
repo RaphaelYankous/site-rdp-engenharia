@@ -25,17 +25,25 @@ function App() {
   return (
     <div className="min-h-screen bg-engine-darker text-engine-light font-sans selection:bg-engine-primary selection:text-engine-darker overflow-x-hidden">
       
-      {/* --- NAVBAR (Fixo com Blur) --- */}
+{/* --- NAVBAR (LOGO OCUPANDO ALTURA TOTAL) --- */}
       <motion.nav 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed w-full z-50 bg-engine-darker/80 backdrop-blur-md border-b border-white/5"
+        className="fixed w-full z-50 bg-engine-darker/90 backdrop-blur-md border-b border-white/5"
       >
+        {/* h-20 define a altura da barra (80px) */}
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-tighter cursor-pointer hover:text-white transition-colors">
-            RDP<span className="text-engine-primary">.</span>
+          
+          {/* LOGO: h-full faz ela ter os mesmos 80px da barra */}
+          <div className="flex items-center cursor-pointer h-full">
+             <img 
+               src="/image_a07a1a.png" 
+               alt="RDP Engenharia Logo" 
+               className="h-full w-auto object-contain hover:opacity-80 transition-opacity" 
+             />
           </div>
+
           <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
             {['NR12', 'Linha de Vida', 'Projetos', 'Laudos'].map((item) => (
               <a key={item} href={`#${item.toLowerCase().replace(/ /g, '')}`} className="hover:text-engine-primary hover:scale-105 transition-all">
@@ -274,11 +282,11 @@ function App() {
               * Seguimos rigorosamente as etapas exigidas pela Norma Regulamentadora Nº 12 (NR-12) do Ministério do Trabalho.
             </p>
           </div>
-        </div>
-      </section>
+        </div>    
+        </section>
 
-      {/* =========================================
-          SERVIÇO 2: LINHA DE VIDA
+{/* =========================================
+          SERVIÇO 2: LINHA DE VIDA (FOTO REAL)
       ========================================= */}
       <section id="linhadevida" className="py-32 px-6 bg-[#0a0a0a]">
         <motion.div 
@@ -288,30 +296,46 @@ function App() {
           variants={fadeInUp}
           className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20"
         >
-          <div className="flex-1 w-full">
+          
+          {/* --- COLUNA ESQUERDA: FOTO REAL IMPACTANTE --- */}
+          <div className="flex-1 w-full h-full">
             <motion.div 
-              whileHover={{ scale: 1.02, rotate: -1 }}
-              className="relative h-[600px] w-full bg-neutral-800 rounded-2xl flex items-center justify-center shadow-2xl overflow-hidden group"
+              whileHover={{ scale: 1.02 }}
+              className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 group"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-              <div className="absolute bottom-10 left-10 z-20">
-                <div className="text-5xl font-bold text-white mb-2">100%</div>
-                <div className="text-sm text-gray-400 uppercase tracking-widest">Segurança Certificada</div>
+              {/* Overlay gradiente para dar estilo e legibilidade se quiser por texto em cima */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+              
+              {/* A FOTO REAL AQUI */}
+              <img 
+                src="/linha.jpg" 
+                alt="Trabalhadores em altura utilizando Linha de Vida Vertical" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* Tag Flutuante (Opcional - dá um charme) */}
+              <div className="absolute bottom-8 left-8 z-20 bg-engine-primary/90 backdrop-blur-md px-4 py-2 rounded text-engine-darker font-bold text-sm shadow-lg">
+                Execução Certificada
               </div>
-              <span className="text-7xl relative z-0 group-hover:scale-110 transition-transform duration-700">🏗️</span>
             </motion.div>
           </div>
+
+          {/* --- COLUNA DIREITA: TEXTO TÉCNICO --- */}
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-10 bg-engine-primary"></span>
               <span className="text-engine-primary text-xs font-bold uppercase tracking-widest">Trabalho em Altura</span>
             </div>
+            
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
               Linhas de Vida <br/> Rígidas e Flexíveis
             </h2>
+            
             <p className="text-gray-400 text-lg leading-relaxed mb-10">
-              Projetos focados na viabilidade econômica sem sacrificar a segurança. Sistemas testados e aprovados com rigoroso controle de qualidade.
+              Projetos focados na viabilidade econômica sem sacrificar a segurança. Sistemas testados e aprovados com rigoroso controle de qualidade para proteção total da sua equipe.
             </p>
+
+            {/* Lista de Detalhes */}
             <motion.div 
               variants={staggerContainer}
               initial="hidden"
@@ -319,15 +343,20 @@ function App() {
               className="grid grid-cols-1 sm:grid-cols-2 gap-4"
             >
               {[
-                "Levantamento Técnico", "Memorial de Cálculo", "Instalação Certificada", "Teste de Arrancamento", "Catálogo Técnico", "Inspeção Periódica"
+                "Levantamento Técnico", 
+                "Memorial de Cálculo", 
+                "Instalação Certificada", 
+                "Teste de Arrancamento", 
+                "Catálogo Técnico", 
+                "Inspeção Periódica"
               ].map((item, i) => (
                 <motion.div 
                   variants={fadeInUp}
                   whileHover={{ x: 10, borderColor: '#FFD700' }}
                   key={i} 
-                  className="p-5 bg-white/5 border border-white/5 rounded transition-all cursor-default"
+                  className="p-4 bg-white/5 border border-white/5 rounded transition-all cursor-default group"
                 >
-                  <h4 className="text-white font-medium text-sm flex items-center gap-2">
+                  <h4 className="text-gray-300 group-hover:text-white font-medium text-sm flex items-center gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-engine-primary"></span>
                     {item}
                   </h4>
@@ -335,114 +364,110 @@ function App() {
               ))}
             </motion.div>
           </div>
+
         </motion.div>
       </section>
 
-      {/* =========================================
-          SERVIÇO 3: PROJETOS MECÂNICOS
+{/* =========================================
+          SERVIÇO 3: PROJETOS CUSTOMIZADOS (TAMANHO COMPACTO E NÍTIDO)
       ========================================= */}
-      <section id="projetos" className="py-32 px-6 bg-engine-darker relative overflow-hidden">
+      <section id="projetos" className="py-24 px-6 bg-engine-darker relative overflow-hidden">
+        
+        {/* Linha decorativa no topo */}
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-engine-primary/50 to-transparent"></div>
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center mb-20"
-          >
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Projetos Customizados
-            </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Transformamos complexidade em eficiência. Do esboço à fabricação, entregamos a solução completa em 3D e 2D.
-            </p>
-          </motion.div>
-          <motion.div 
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {[
-              { icon: "⚙️", title: "Modelagem 3D", desc: "Antecipe erros e visualize o produto final com precisão milimétrica." },
-              { icon: "📉", title: "Otimização", desc: "Redução inteligente de custos e materiais sem perder resistência." },
-              { icon: "🏭", title: "Para Fábrica", desc: "Desenhos técnicos claros para execução imediata no chão de fábrica." }
-            ].map((card, i) => (
-              <motion.div 
-                key={i}
-                variants={fadeInUp}
-                whileHover={{ y: -10 }}
-                className="p-10 bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl hover:border-engine-primary/30 hover:shadow-2xl hover:shadow-engine-primary/5 transition-all group"
-              >
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{card.icon}</div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-engine-primary transition-colors">{card.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{card.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* =========================================
-          SERVIÇO 4: LAUDOS TÉCNICOS
-      ========================================= */}
-      <section id="laudos" className="py-32 px-6 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
-              <h3 className="text-engine-primary font-medium tracking-widest text-sm uppercase mb-2">Engenharia Legal</h3>
-              <h2 className="text-4xl font-bold text-white">Laudos Técnicos</h2>
-            </motion.div>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="text-gray-400 mt-4 md:mt-0"
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          
+          {/* Cabeçalho da Seção */}
+          <div className="text-center mb-16">
+            <motion.div
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.6 }}
             >
-              Registro CREA e ART inclusos em todos os serviços.
-            </motion.p>
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                Projetos Customizados
+                </h2>
+                <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                Transformamos complexidade em eficiência. Confira nosso fluxo de trabalho detalhado.
+                </p>
+            </motion.div>
           </div>
-          <motion.div 
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {[
-              { title: "Pontes Rolantes", desc: "Inspeção de trilhos, vigas e sistemas de içamento." },
-              { title: "Estruturas Metálicas", desc: "Análise de corrosão, deformações e soldas." },
-              { title: "Máquinas Pesadas", desc: "Avaliação de integridade para linha amarela." },
-              { title: "Reclassificação de Monta", desc: "Laudos para regularização de veículos sinistrados." },
-              { title: "Compressores (NR13)", desc: "Teste hidrostático e inspeção de vasos de pressão." },
-              { title: "Laudo de Conformidade", desc: "Documento conclusivo para fiscalização do trabalho." },
-            ].map((item, i) => (
-              <motion.div 
-                key={i}
-                variants={fadeInUp}
-                whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.03)" }}
-                className="p-8 bg-engine-darker rounded-xl border-l-4 border-engine-primary shadow-lg cursor-pointer"
-              >
-                <h4 className="text-xl font-bold text-white mb-3">{item.title}</h4>
-                <p className="text-gray-400 text-sm">{item.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+
+          {/* Grid com as 3 Imagens - AGORA BEM MENORES (max-w-xs) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center items-start">
+            
+            {/* Painel 1: Modelagem 3D */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              // MUDANÇA: 'max-w-xs' (aprox 320px) deixa a imagem bem compacta e nítida
+              className="w-full max-w-xs mx-auto rounded-xl overflow-hidden shadow-2xl border border-white/10 group cursor-default"
+            >
+              <img 
+                src="/image_58.png" 
+                alt="Infográfico de Modelagem 3D" 
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
+
+            {/* Painel 2: Otimização */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              className="w-full max-w-xs mx-auto rounded-xl overflow-hidden shadow-2xl border border-white/10 group cursor-default"
+            >
+              <img 
+                src="/image_59.png" 
+                alt="Infográfico de Otimização" 
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
+
+            {/* Painel 3: Para Fábrica */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+              className="w-full max-w-xs mx-auto rounded-xl overflow-hidden shadow-2xl border border-white/10 group cursor-default"
+            >
+              <img 
+                src="/image_60.png" 
+                alt="Infográfico de Execução" 
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
+
+          </div>
         </div>
       </section>
-
-{/* --- FOOTER (ATUALIZADO COM 3 CERTIFICAÇÕES) --- */}
+      
+{/* --- FOOTER (CORRIGIDO) --- */}
       <footer className="bg-black border-t border-white/10 pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             
-            {/* Coluna 1: Sobre */}
+            {/* Coluna 1: Logo e Sobre (OCUPA 2 ESPAÇOS) */}
             <div className="col-span-1 md:col-span-2">
-              <h2 className="text-2xl font-bold text-white mb-6 tracking-tighter">
-                RDP<span className="text-engine-primary">.</span>
-              </h2>
+              
+              {/* LOGO NO RODAPÉ */}
+              <div className="mb-6">
+                <img 
+                  src="/image_a07a1a.png" 
+                  alt="RDP Engenharia Logo" 
+                  className="w-40 h-auto object-contain" 
+                />
+              </div>
+
               <p className="text-gray-500 text-sm leading-relaxed max-w-sm mb-6">
                 Soluções de engenharia mecânica e segurança do trabalho focadas em reduzir custos e salvar vidas.
               </p>
@@ -455,7 +480,9 @@ function App() {
               </div>
             </div>
 
-            {/* Coluna 2: Navegação */}
+            {/* (A COLUNA DUPLICADA FOI REMOVIDA DAQUI) */}
+
+            {/* Coluna 2: Navegação (OCUPA 1 ESPAÇO) */}
             <div>
               <h4 className="text-white font-bold mb-6">Navegação</h4>
               <ul className="space-y-3 text-sm text-gray-500">
@@ -466,7 +493,7 @@ function App() {
               </ul>
             </div>
             
-            {/* Coluna 3: Certificações (AGORA COM OS 3 SELOS) */}
+            {/* Coluna 3: Certificações (OCUPA 1 ESPAÇO) */}
             <div>
               <h4 className="text-white font-bold mb-6">Certificações</h4>
               <div className="flex flex-col gap-3">
@@ -514,7 +541,7 @@ function App() {
           </div>
         </div>
       </footer>
-    </div>
+          </div>
   );
 }
 
