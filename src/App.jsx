@@ -540,10 +540,56 @@ function App() {
                         <p className="text-[10px] text-engine-primary">Engenharia Certificada</p>
                     </div>
                 </div>
-
               </div>
+              {/* --- BARRA INFERIOR DO RODAPÉ (ATUALIZADA) --- */}
+          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-end md:items-center gap-6">
+            
+            {/* Copyright da Empresa (Esquerda) */}
+            <div className="text-xs text-gray-600 w-full md:w-auto text-center md:text-left">
+              <p>© 2025 RDP Engenharia. Todos os direitos reservados.</p>
+              <p>CNPJ: 21.632.581/0001-54</p>
             </div>
 
+            {/* SUA ASSINATURA TECH (Direita) */}
+            <div className="flex flex-col items-center md:items-end">
+              <span className="text-[10px] uppercase tracking-widest text-gray-600 mb-1">
+                Desenvolvido por
+              </span>
+              
+              {/* Nome com Fonte Tech */}
+              <a 
+                href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="text-lg text-gray-300 hover:text-engine-primary transition-colors font-bold tracking-tight"
+                style={{ fontFamily: '"Space Mono", monospace' }}
+              >
+                {`< Raphael Yankous />`}
+              </a>
+
+              {/* Links de Contato */}
+              <div className="flex gap-3 text-[11px] text-gray-500 mt-1 font-medium">
+                <a 
+                  href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-1"
+                >
+                  LINKEDIN
+                </a>
+                <span className="text-gray-700">|</span>
+                <a 
+                  href="https://wa.me/5531993790633" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-1"
+                >
+                  (31) 99379-0633
+                </a>
+              </div>
+            </div>
+          </div>
+            </div>
           </div>
           <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
             <p>© 2025 RDP Engenharia. Todos os direitos reservados.</p>
