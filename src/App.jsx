@@ -127,7 +127,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- SOBRE A EMPRESA (NOVA SEÇÃO) --- */}
+      {/* --- SOBRE A EMPRESA --- */}
       <section id="sobre" className="py-24 px-6 bg-[#0a0a0a] relative">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1">
@@ -158,7 +158,6 @@ function App() {
               </div>
             </motion.div>
           </div>
-          {/* Imagem ou Elemento Visual do Sobre */}
           <div className="flex-1 w-full relative">
              <motion.div 
                initial={{ opacity: 0, x: 50 }} 
@@ -285,47 +284,68 @@ function App() {
         </div>
       </section>
 
-      {/* --- LAUDOS TÉCNICOS (NOVA SEÇÃO) --- */}
+      {/* --- LAUDOS TÉCNICOS (GRID AJUSTADO PARA NÃO CORTAR TEXTO) --- */}
       <section id="laudos" className="py-24 px-6 bg-[#0a0a0a] relative">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Laudos Técnicos</h2>
-            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              Avaliações precisas feitas por engenheiros habilitados. Garantimos a segurança jurídica e operacional da sua empresa através de inspeções rigorosas e laudos conclusivos.
-            </p>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-16">
+          
+          {/* COLUNA DA IMAGEM */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 relative w-full h-[400px] lg:h-[600px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group"
+          >
+             <img src="/image_6.png" alt="Engenheiros da RDP realizando análise técnica na fábrica" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Máquinas Pesadas", icon: "🚜" },
-              { title: "Pontes Rolantes", icon: "🏗️" },
-              { title: "Dispositivos de Içamento", icon: "🔗" },
-              { title: "Estruturas Metálicas", icon: "🏢" },
-              { title: "Reclassificação de Monta", icon: "🚗" },
-              { title: "Vasos de Pressão", icon: "⚙️" },
-              { title: "Compressores", icon: "💨" },
-              { title: "PMOC", icon: "❄️" },
-            ].map((item, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5, borderColor: '#FFD700' }}
-                className="bg-white/5 border border-white/10 p-6 rounded-xl text-center group cursor-default hover:bg-white/10 transition-all"
-              >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">{item.icon}</div>
-                <h3 className="text-white font-bold text-lg group-hover:text-engine-primary transition-colors">{item.title}</h3>
-              </motion.div>
-            ))}
+          {/* COLUNA DO CONTEÚDO */}
+          <div className="flex-1">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center lg:text-left mb-12">
+              <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
+                  <span className="h-px w-10 bg-engine-primary"></span>
+                  <span className="text-engine-primary text-xs font-bold uppercase tracking-widest">Inspeção & Segurança</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Laudos Técnicos</h2>
+              <p className="text-gray-400 text-lg">
+                Avaliações precisas feitas por engenheiros habilitados. Garantimos a segurança jurídica e operacional da sua empresa através de inspeções rigorosas e laudos conclusivos com ART.
+              </p>
+            </motion.div>
+
+            {/* GRID DE ÍCONES (Ajustado para 1 coluna no mobile e 2 no desktop, sem limite de altura) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              {[
+                { title: "Máquinas Pesadas", icon: "🚜" },
+                { title: "Pontes Rolantes", icon: "🏗️" },
+                { title: "Içamento de Cargas", icon: "🔗" },
+                { title: "Estruturas Metálicas", icon: "🏢" },
+                { title: "Vasos de Pressão", icon: "⚙️" },
+                { title: "Compressores", icon: "💨" },
+                { title: "Reclassificação de Monta", icon: "🚗" },
+                { title: "PMOC", icon: "❄️" },
+              ].map((item, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white/5 border border-white/10 p-4 rounded-lg flex items-center gap-3 hover:border-engine-primary/50 transition-all cursor-default h-auto min-h-[80px]"
+                >
+                  <span className="text-2xl flex-shrink-0">{item.icon}</span>
+                  <h3 className="text-white font-medium text-sm leading-tight">{item.title}</h3>
+                </motion.div>
+              ))}
+            </div>
+            
+            <div className="text-center lg:text-left">
+               <a href="https://wa.me/5531999128061?text=Olá,%20gostaria%20de%20solicitar%20um%20Laudo%20Técnico." target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-engine-primary text-engine-darker font-bold rounded hover:bg-yellow-400 hover:shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all inline-block">
+                 Solicitar Laudo Técnico
+               </a>
+            </div>
           </div>
-          
-          <div className="mt-12 text-center">
-             <a href="https://wa.me/5531999128061" target="_blank" rel="noopener noreferrer" className="text-engine-primary border-b border-engine-primary hover:text-white hover:border-white transition-colors pb-1 text-sm font-bold uppercase tracking-wider">
-               Solicitar Laudo Técnico →
-             </a>
-          </div>
+
         </div>
       </section>
       
