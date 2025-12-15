@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react'; // Adicionado useState
+import { motion, AnimatePresence } from 'framer-motion'; // Adicionado AnimatePresence
 
 // Configurações de Animação (Reutilizáveis)
 const fadeInUp = {
@@ -22,6 +22,12 @@ const staggerContainer = {
 };
 
 function App() {
+  // Estado para controlar o Menu Mobile
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Função para fechar o menu ao clicar em um link
+  const closeMenu = () => setIsMobileMenuOpen(false);
+
   return (
     <div className="min-h-screen bg-engine-darker text-engine-light font-sans selection:bg-engine-primary selection:text-engine-darker overflow-x-hidden">
       
@@ -32,7 +38,7 @@ function App() {
         transition={{ duration: 0.5 }}
         className="fixed w-full z-50 bg-engine-darker/90 backdrop-blur-md border-b border-white/5"
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between md:justify-between justify-center">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           
           {/* LOGO */}
           <div className="flex items-center cursor-pointer h-full">
@@ -43,7 +49,7 @@ function App() {
              />
           </div>
 
-          {/* LINKS (Escondidos no mobile) */}
+          {/* LINKS (Desktop) */}
           <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
             {['NR12', 'Linha de Vida', 'Projetos', 'Laudos'].map((item) => (
               <a key={item} href={`#${item.toLowerCase().replace(/ /g, '')}`} className="hover:text-engine-primary hover:scale-105 transition-all">
@@ -52,7 +58,7 @@ function App() {
             ))}
           </div>
           
-          {/* BOTÃO NAVBAR (Escondido no mobile) */}
+          {/* BOTÃO (Desktop) */}
           <a 
             href="https://wa.me/5531999128061?text=Olá,%20vim%20pelo%20site%20da%20RDP%20Engenharia%20e%20gostaria%20de%20um%20orçamento."
             target="_blank"
@@ -61,16 +67,67 @@ function App() {
           >
             Falar com Engenheiro
           </a>
+
+          {/* BOTÃO HAMBÚRGUER (Mobile) */}
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden text-white p-2 focus:outline-none"
+          >
+            {isMobileMenuOpen ? (
+              // Ícone X (Fechar)
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              // Ícone Menu (Hambúrguer)
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
+
+        {/* MENU MOBILE (DROPDOWN) */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="md:hidden bg-engine-darker border-b border-white/10 overflow-hidden"
+            >
+              <div className="flex flex-col p-6 gap-4">
+                {['NR12', 'Linha de Vida', 'Projetos', 'Laudos'].map((item) => (
+                  <a 
+                    key={item} 
+                    href={`#${item.toLowerCase().replace(/ /g, '')}`} 
+                    onClick={closeMenu}
+                    className="text-lg font-medium text-gray-300 hover:text-engine-primary py-2 border-b border-white/5"
+                  >
+                    {item}
+                  </a>
+                ))}
+                <a 
+                  href="https://wa.me/5531999128061?text=Olá,%20vim%20pelo%20site%20da%20RDP%20Engenharia%20e%20gostaria%20de%20um%20orçamento."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMenu}
+                  className="mt-2 w-full py-3 bg-engine-primary text-engine-darker font-bold text-center rounded"
+                >
+                  Falar com Engenheiro
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
 
-      {/* --- HERO SECTION (AJUSTADA) --- */}
+      {/* --- HERO SECTION --- */}
       <section className="relative min-h-[90vh] md:h-screen flex items-center justify-center overflow-hidden py-12 md:py-0">
         <div className="absolute inset-0 opacity-20" 
              style={{ backgroundImage: 'radial-gradient(#FFD700 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
         </div>
         
-        {/* Fundo responsivo para não quebrar no mobile */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[90vw] md:w-[500px] md:h-[500px] bg-engine-primary/5 blur-[100px] md:blur-[120px] rounded-full pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
@@ -482,7 +539,6 @@ function App() {
             <div className="text-xs text-gray-500 text-center md:text-left">
                © {new Date().getFullYear()} RDP Engenharia - CNPJ: 21.632.581/0001-54 | <a href="#" className="hover:text-white">Política de Privacidade</a>
             </div>
-            {/* DESENVOLVEDOR + TELEFONE DEV SEPARADOS AQUI EMBAIXO */}
             <div className="flex flex-col md:flex-row items-center gap-4 text-xs text-gray-500">
               <div className="flex items-center gap-2">
                 <span>Desenvolvido por</span>
