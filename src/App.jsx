@@ -34,7 +34,7 @@ function App() {
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between md:justify-between justify-center">
           
-          {/* LOGO: Centralizada no mobile, à esquerda no desktop */}
+          {/* LOGO */}
           <div className="flex items-center cursor-pointer h-full">
              <img 
                src="/image_a07a1a.png" 
@@ -43,7 +43,7 @@ function App() {
              />
           </div>
 
-          {/* LINKS: ESCONDIDOS NO CELULAR (hidden md:flex) */}
+          {/* LINKS (Escondidos no mobile) */}
           <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
             {['NR12', 'Linha de Vida', 'Projetos', 'Laudos'].map((item) => (
               <a key={item} href={`#${item.toLowerCase().replace(/ /g, '')}`} className="hover:text-engine-primary hover:scale-105 transition-all">
@@ -52,7 +52,7 @@ function App() {
             ))}
           </div>
           
-          {/* BOTÃO NAVBAR: ESCONDIDO NO CELULAR (hidden md:flex) */}
+          {/* BOTÃO NAVBAR (Escondido no mobile) */}
           <a 
             href="https://wa.me/5531999128061?text=Olá,%20vim%20pelo%20site%20da%20RDP%20Engenharia%20e%20gostaria%20de%20um%20orçamento."
             target="_blank"
@@ -64,14 +64,14 @@ function App() {
         </div>
       </motion.nav>
 
-      {/* --- HERO SECTION --- */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* --- HERO SECTION (AJUSTADA) --- */}
+      <section className="relative min-h-[90vh] md:h-screen flex items-center justify-center overflow-hidden py-12 md:py-0">
         <div className="absolute inset-0 opacity-20" 
              style={{ backgroundImage: 'radial-gradient(#FFD700 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
         </div>
         
-        {/* CORREÇÃO DO FUNDO: w-[80vw] para não estourar a largura no mobile */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[500px] md:h-[500px] bg-engine-primary/5 blur-[120px] rounded-full pointer-events-none" />
+        {/* Fundo responsivo para não quebrar no mobile */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[90vw] md:w-[500px] md:h-[500px] bg-engine-primary/5 blur-[100px] md:blur-[120px] rounded-full pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <motion.div 
@@ -83,17 +83,16 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-engine-primary font-medium tracking-[0.2em] text-xs md:text-sm uppercase mb-6"
+              className="text-engine-primary font-medium tracking-[0.2em] text-xs md:text-sm uppercase mb-4 md:mb-6"
             >
               Soluções Industriais & Segurança
             </motion.h2>
             
-            {/* Texto responsivo: text-4xl no mobile, text-8xl no PC */}
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-4xl md:text-8xl font-bold tracking-tight mb-8 leading-tight"
+              className="text-4xl md:text-8xl font-bold tracking-tight mb-6 md:mb-8 leading-tight"
             >
               Engenharia <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-600">
@@ -107,12 +106,11 @@ function App() {
               transition={{ delay: 0.8 }}
               className="flex flex-col md:flex-row gap-4 justify-center"
             >
-              {/* BOTÃO HERO - MENSAGEM CORRETA */}
               <a 
                 href="https://wa.me/5531999128061?text=Olá,%20vim%20pelo%20site%20da%20RDP%20Engenharia%20e%20gostaria%20de%20um%20orçamento."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-engine-primary text-engine-darker font-bold rounded hover:bg-yellow-400 hover:scale-105 transition-all shadow-lg shadow-engine-primary/20 inline-block text-sm md:text-base"
+                className="px-8 py-3 md:py-4 bg-engine-primary text-engine-darker font-bold rounded hover:bg-yellow-400 hover:scale-105 transition-all shadow-lg shadow-engine-primary/20 inline-block text-sm md:text-base"
               >
                 Solicitar Orçamento
               </a>
@@ -410,7 +408,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             
-            {/* CONTATO */}
+            {/* CONTATO DA EMPRESA */}
             <div>
               <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-6">
                 CONTATO
@@ -458,7 +456,7 @@ function App() {
               </ul>
             </div>
 
-            {/* REDES SOCIAIS */}
+            {/* REDES SOCIAIS DA EMPRESA */}
             <div>
               <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-6">
                 REDES SOCIAIS
@@ -484,6 +482,7 @@ function App() {
             <div className="text-xs text-gray-500 text-center md:text-left">
                © {new Date().getFullYear()} RDP Engenharia - CNPJ: 21.632.581/0001-54 | <a href="#" className="hover:text-white">Política de Privacidade</a>
             </div>
+            {/* DESENVOLVEDOR + TELEFONE DEV SEPARADOS AQUI EMBAIXO */}
             <div className="flex flex-col md:flex-row items-center gap-4 text-xs text-gray-500">
               <div className="flex items-center gap-2">
                 <span>Desenvolvido por</span>
