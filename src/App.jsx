@@ -127,9 +127,10 @@ function App() {
         </div>
       </section>
 
-      {/* --- SOBRE A EMPRESA --- */}
+      {/* --- SOBRE A EMPRESA (COM A NOVA IMAGEM) --- */}
       <section id="sobre" className="py-24 px-6 bg-[#0a0a0a] relative">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+          {/* Texto (Lado Esquerdo) */}
           <div className="flex-1">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
               <div className="flex items-center gap-3 mb-6">
@@ -158,15 +159,19 @@ function App() {
               </div>
             </motion.div>
           </div>
+          
+          {/* Imagem Nova (Lado Direito) */}
           <div className="flex-1 w-full relative">
              <motion.div 
                initial={{ opacity: 0, x: 50 }} 
                whileInView={{ opacity: 1, x: 0 }} 
+               viewport={{ once: true }}
                transition={{ duration: 0.8 }}
-               className="relative rounded-2xl overflow-hidden border border-white/10"
+               className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
              >
-                <img src="/construção.jpg" alt="RDP Engenharia Sobre" className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                {/* AQUI ESTÁ A NOVA IMAGEM */}
+                <img src="/sobre-banner.jpg" alt="RDP Engenharia Sobre - Banner" className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
              </motion.div>
           </div>
         </div>
@@ -284,11 +289,9 @@ function App() {
         </div>
       </section>
 
-      {/* --- LAUDOS TÉCNICOS (GRID AJUSTADO PARA NÃO CORTAR TEXTO) --- */}
+      {/* --- LAUDOS TÉCNICOS --- */}
       <section id="laudos" className="py-24 px-6 bg-[#0a0a0a] relative">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-16">
-          
-          {/* COLUNA DA IMAGEM */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -300,7 +303,6 @@ function App() {
              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </motion.div>
 
-          {/* COLUNA DO CONTEÚDO */}
           <div className="flex-1">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center lg:text-left mb-12">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
@@ -313,7 +315,6 @@ function App() {
               </p>
             </motion.div>
 
-            {/* GRID DE ÍCONES (Ajustado para 1 coluna no mobile e 2 no desktop, sem limite de altura) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {[
                 { title: "Máquinas Pesadas", icon: "🚜" },
