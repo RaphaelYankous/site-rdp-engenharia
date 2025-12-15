@@ -463,141 +463,131 @@ function App() {
         </div>
       </section>
       
-      {/* --- FOOTER (CORRIGIDO) --- */}
-      <footer className="bg-black border-t border-white/10 pt-16 pb-8">
+{/* --- FOOTER CORRIGIDO (TELEFONE DEV SEPARADO) --- */}
+      <footer className="bg-[#1a1a1a] text-white pt-16 pb-8 border-t border-zinc-800 font-sans">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             
-            {/* Coluna 1: Logo e Sobre (OCUPA 2 ESPAÇOS) */}
-            <div className="col-span-1 md:col-span-2">
-              
-              {/* LOGO NO RODAPÉ */}
-              <div className="mb-6">
-                <img 
-                  src="/image_a07a1a.png" 
-                  alt="RDP Engenharia Logo" 
-                  className="w-40 h-auto object-contain" 
-                />
-              </div>
-
-              <p className="text-gray-500 text-sm leading-relaxed max-w-sm mb-6">
-                Soluções de engenharia mecânica e segurança do trabalho focadas em reduzir custos e salvar vidas.
-              </p>
-              <div className="flex gap-4">
-                {['LinkedIn', 'Instagram', 'WhatsApp'].map(social => (
-                  <a key={social} href="#" className="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-gray-400 hover:bg-engine-primary hover:text-black transition-colors text-xs font-bold">
-                    {social[0]}
+            {/* Coluna 1: CONTATO DA EMPRESA */}
+            <div>
+              <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-6">
+                CONTATO
+              </h4>
+              <ul className="space-y-4 text-sm text-gray-400">
+                {/* Telefone DA EMPRESA */}
+                <li className="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                  <span>(31) 99912-8061</span>
+                </li>
+                
+                {/* Endereço DA EMPRESA */}
+                <li>
+                  <a 
+                    href="https://share.google/bJ6ulLYwJPFoSD5XW" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 hover:text-white transition-colors group"
+                    title="Ver localização no Google Maps"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white mt-1 flex-shrink-0 group-hover:text-engine-primary transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span>Belo Horizonte - MG<br/>Atendimento em todo o Brasil</span>
                   </a>
-                ))}
-              </div>
+                </li>
+
+                {/* Horário */}
+                <li className="flex items-start gap-3">
+                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                     <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                   </svg>
+                   <span>Seg a Sex: 8:00h às 18h</span>
+                </li>
+              </ul>
             </div>
 
-            {/* Coluna 2: Navegação (OCUPA 1 ESPAÇO) */}
+            {/* Coluna 2: MAPA DO SITE */}
             <div>
-              <h4 className="text-white font-bold mb-6">Navegação</h4>
-              <ul className="space-y-3 text-sm text-gray-500">
+              <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-6">
+                MAPA DO SITE
+              </h4>
+              <ul className="space-y-3 text-sm text-gray-400">
                 <li><a href="#nr12" className="hover:text-engine-primary transition-colors">Adequação NR12</a></li>
                 <li><a href="#linhadevida" className="hover:text-engine-primary transition-colors">Linhas de Vida</a></li>
                 <li><a href="#projetos" className="hover:text-engine-primary transition-colors">Projetos Mecânicos</a></li>
                 <li><a href="#laudos" className="hover:text-engine-primary transition-colors">Laudos Técnicos</a></li>
               </ul>
             </div>
-            
-            {/* Coluna 3: Certificações (OCUPA 1 ESPAÇO) */}
+
+            {/* Coluna 3: REDES SOCIAIS (DA EMPRESA) */}
             <div>
-              <h4 className="text-white font-bold mb-6">Certificações</h4>
-              <div className="flex flex-col gap-3">
-                
-                {/* 1. Selo NR-12 */}
-                <div className="flex items-center gap-3 p-2 bg-white/5 rounded-lg border border-white/5 hover:border-engine-primary/30 transition-colors cursor-default">
-                    <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded overflow-hidden">
-                        <img src="/image_16.png" alt="NR12" className="w-full h-full object-contain" />
-                    </div>
-                    <div>
-                        <p className="text-white font-bold text-xs">NR-12 Adequado</p>
-                        <p className="text-[10px] text-engine-primary">Segurança em Máquinas</p>
-                    </div>
-                </div>
-
-                {/* 2. Selo NR-11 */}
-                <div className="flex items-center gap-3 p-2 bg-white/5 rounded-lg border border-white/5 hover:border-engine-primary/30 transition-colors cursor-default">
-                    <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded overflow-hidden bg-white/10">
-                        <img src="/NR11.jpg" alt="NR11" className="w-full h-full object-contain mix-blend-screen" />
-                    </div>
-                    <div>
-                        <p className="text-white font-bold text-xs">NR-11 Transporte</p>
-                        <p className="text-[10px] text-engine-primary">Movimentação de Cargas</p>
-                    </div>
-                </div>
-
-                {/* 3. Selo CREA */}
-                <div className="flex items-center gap-3 p-2 bg-white/5 rounded-lg border border-white/5 hover:border-engine-primary/30 transition-colors cursor-default">
-                    <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded overflow-hidden bg-white p-0.5">
-                        <img src="/CREA.png" alt="CREA" className="w-full h-full object-contain" />
-                    </div>
-                    <div>
-                        <p className="text-white font-bold text-xs">CREA-MG</p>
-                        <p className="text-[10px] text-engine-primary">Engenharia Certificada</p>
-                    </div>
-                </div>
-              </div>
-              {/* --- BARRA INFERIOR DO RODAPÉ (ATUALIZADA) --- */}
-          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-end md:items-center gap-6">
+              <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-6">
+                REDES SOCIAIS
+              </h4>
+              <ul className="space-y-4 text-sm text-gray-400">
+                {/* LinkedIn da EMPRESA */}
+                <li>
+                  <a href="#" className="flex items-center gap-3 hover:text-white transition-colors group">
+                    <svg className="h-4 w-4 text-white group-hover:text-engine-primary transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span>LinkedIn (RDP)</span>
+                  </a>
+                </li>
+                {/* Instagram da EMPRESA */}
+                <li>
+                   <a href="https://www.instagram.com/rdp.engenharia/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
+                    <svg className="h-4 w-4 text-white group-hover:text-engine-primary transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <span>Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          {/* --- BARRA INFERIOR (DESENVOLVEDOR AGORA AQUI) --- */}
+          <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             
-            {/* Copyright da Empresa (Esquerda) */}
-            <div className="text-xs text-gray-600 w-full md:w-auto text-center md:text-left">
-              <p>© 2025 RDP Engenharia. Todos os direitos reservados.</p>
-              <p>CNPJ: 21.632.581/0001-54</p>
+            {/* Copyright */}
+            <div className="text-xs text-gray-500 text-center md:text-left">
+               © {new Date().getFullYear()} RDP Engenharia - CNPJ: 21.632.581/0001-54 | <a href="#" className="hover:text-white">Política de Privacidade</a>
             </div>
 
-            {/* SUA ASSINATURA TECH (Direita) */}
-            <div className="flex flex-col items-center md:items-end">
-              <span className="text-[10px] uppercase tracking-widest text-gray-600 mb-1">
-                Desenvolvido por
-              </span>
-              
-              {/* Nome com Fonte Tech */}
-              <a 
-                href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/"
-                target="_blank"
-                rel="noopener noreferrer" 
-                className="text-lg text-gray-300 hover:text-engine-primary transition-colors font-bold tracking-tight"
-                style={{ fontFamily: '"Space Mono", monospace' }}
-              >
-                {`< Raphael Yankous />`}
-              </a>
-
-              {/* Links de Contato */}
-              <div className="flex gap-3 text-[11px] text-gray-500 mt-1 font-medium">
+            {/* Desenvolvedor + Telefone Dev */}
+            <div className="flex flex-col md:flex-row items-center gap-4 text-xs text-gray-500">
+              <div className="flex items-center gap-2">
+                <span>Desenvolvido por</span>
                 <a 
-                  href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1"
+                    href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/"
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="font-mono font-bold text-white bg-white/10 px-2 py-1 rounded hover:bg-engine-primary hover:text-black transition-all"
                 >
-                  LINKEDIN
-                </a>
-                <span className="text-gray-700">|</span>
-                <a 
-                  href="https://wa.me/5531993790633" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1"
-                >
-                  (31) 99379-0633
+                    &lt; Raphael Yankous /&gt;
                 </a>
               </div>
+              
+              {/* Telefone do Desenvolvedor (WhatsApp Link) */}
+              <a 
+                href="https://wa.me/5531993790633" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 hover:text-white transition-colors"
+                title="Falar com o Desenvolvedor"
+              >
+                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                 </svg>
+                 (31) 99379-0633
+              </a>
             </div>
+
           </div>
-            </div>
-          </div>
-          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
-            <p>© 2025 RDP Engenharia. Todos os direitos reservados.</p>
-            <p>CNPJ: 21.632.581/0001-54</p>
-          </div>
+
         </div>
       </footer>
-
+                  
       {/* --- BOTÃO FLUTUANTE WHATSAPP --- */}
       <motion.a
         href="https://wa.me/5531999128061?text=Olá,%20vim%20pelo%20site%20da%20RDP%20Engenharia%20e%20gostaria%20de%20um%20orçamento."
