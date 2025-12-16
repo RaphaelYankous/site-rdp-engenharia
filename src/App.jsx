@@ -127,10 +127,10 @@ function App() {
         </div>
       </section>
 
-      {/* --- SOBRE A EMPRESA (COM A NOVA IMAGEM) --- */}
+      {/* --- SOBRE A EMPRESA --- */}
       <section id="sobre" className="py-24 px-6 bg-[#0a0a0a] relative">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-          {/* Texto (Lado Esquerdo) */}
+          {/* Texto */}
           <div className="flex-1">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
               <div className="flex items-center gap-3 mb-6">
@@ -160,7 +160,7 @@ function App() {
             </motion.div>
           </div>
           
-          {/* Imagem Nova (Lado Direito) */}
+          {/* Imagem */}
           <div className="flex-1 w-full relative">
              <motion.div 
                initial={{ opacity: 0, x: 50 }} 
@@ -169,7 +169,6 @@ function App() {
                transition={{ duration: 0.8 }}
                className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
              >
-                {/* AQUI ESTÁ A NOVA IMAGEM */}
                 <img src="/sobre-banner.jpg" alt="RDP Engenharia Sobre - Banner" className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
              </motion.div>
@@ -206,7 +205,7 @@ function App() {
           </div>
         </motion.div>
 
-        {/* --- CICLO NR12 --- */}
+        {/* --- CICLO NR12 (METODOLOGIA) COM ÍCONES SVG --- */}
         <div className="mt-32 max-w-7xl mx-auto">
           <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-16 overflow-hidden">
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-engine-primary via-transparent to-transparent"></div>
@@ -215,13 +214,53 @@ function App() {
               <h3 className="text-white font-bold text-2xl md:text-4xl">Metodologia de Adequação</h3>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-engine-primary to-transparent mx-auto mt-6"></div>
             </div>
+            
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-              {[{ id: "01", title: "Apreciação de Riscos", icon: "🔍", desc: "Mapeamento completo dos perigos da máquina." }, { id: "02", title: "Conceituação Técnica", icon: "📝", desc: "Definição das categorias de segurança (CAT)." }, { id: "03", title: "Projetos Executivos", icon: "📐", desc: "Desenhos elétricos, mecânicos e hidráulicos." }, { id: "04", title: "Adequação & Instalação", icon: "⚙️", desc: "Fabricação e montagem das proteções físicas." }, { id: "05", title: "Capacitação", icon: "🎓", desc: "Treinamento operacional e de manutenção." }, { id: "06", title: "Validação Final", icon: "✅", desc: "Laudo conclusivo e entrega da ART." }].map((step, index) => (
+              {[
+                { 
+                  id: "01", 
+                  title: "Apreciação de Riscos", 
+                  desc: "Mapeamento completo dos perigos da máquina.",
+                  icon: <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg> 
+                },
+                { 
+                  id: "02", 
+                  title: "Conceituação Técnica", 
+                  desc: "Definição das categorias de segurança (CAT).",
+                  icon: <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                },
+                { 
+                  id: "03", 
+                  title: "Projetos Executivos", 
+                  desc: "Desenhos elétricos, mecânicos e hidráulicos.",
+                  icon: <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+                },
+                { 
+                  id: "04", 
+                  title: "Adequação & Instalação", 
+                  desc: "Fabricação e montagem das proteções físicas.",
+                  icon: <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                },
+                { 
+                  id: "05", 
+                  title: "Capacitação", 
+                  desc: "Treinamento operacional e de manutenção.",
+                  icon: <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>
+                },
+                { 
+                  id: "06", 
+                  title: "Validação Final", 
+                  desc: "Laudo conclusivo e entrega da ART.",
+                  icon: <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                }
+              ].map((step, index) => (
                 <motion.div key={step.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} whileHover={{ y: -5 }} className="group relative w-full max-w-sm cursor-default">
                   <div className="flex items-center gap-6 p-6 bg-engine-darker border border-white/5 rounded-xl hover:border-engine-primary/40 hover:bg-white/5 transition-all duration-300 shadow-lg">
                     <div className="relative flex-shrink-0 w-16 h-16 flex items-center justify-center">
                        <div className="absolute inset-0 bg-engine-primary/10 group-hover:bg-engine-primary/20 transition-colors" style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}></div>
-                       <span className="text-2xl relative z-10">{step.icon}</span>
+                       <div className="text-engine-primary relative z-10 group-hover:scale-110 transition-transform">
+                          {step.icon}
+                       </div>
                     </div>
                     <div>
                       <div className="text-engine-primary text-xs font-bold mb-1">PASSO {step.id}</div>
@@ -289,7 +328,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- LAUDOS TÉCNICOS --- */}
+      {/* --- LAUDOS TÉCNICOS COM ÍCONES SVG --- */}
       <section id="laudos" className="py-24 px-6 bg-[#0a0a0a] relative">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-16">
           <motion.div 
@@ -317,14 +356,14 @@ function App() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {[
-                { title: "Máquinas Pesadas", icon: "🚜" },
-                { title: "Pontes Rolantes", icon: "🏗️" },
-                { title: "Içamento de Cargas", icon: "🔗" },
-                { title: "Estruturas Metálicas", icon: "🏢" },
-                { title: "Vasos de Pressão", icon: "⚙️" },
-                { title: "Compressores", icon: "💨" },
-                { title: "Reclassificação de Monta", icon: "🚗" },
-                { title: "PMOC", icon: "❄️" },
+                { title: "Máquinas Pesadas", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" /></svg> },
+                { title: "Pontes Rolantes", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" /></svg> },
+                { title: "Içamento de Cargas", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg> },
+                { title: "Estruturas Metálicas", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg> },
+                { title: "Vasos de Pressão", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
+                { title: "Compressores", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" /></svg> },
+                { title: "Reclassificação de Monta", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg> },
+                { title: "PMOC", icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> },
               ].map((item, index) => (
                 <motion.div 
                   key={index}
@@ -332,9 +371,11 @@ function App() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 border border-white/10 p-4 rounded-lg flex items-center gap-3 hover:border-engine-primary/50 transition-all cursor-default h-auto min-h-[80px]"
+                  className="bg-white/5 border border-white/10 p-4 rounded-lg flex items-center gap-4 hover:border-engine-primary/50 transition-all cursor-default h-auto min-h-[80px] group"
                 >
-                  <span className="text-2xl flex-shrink-0">{item.icon}</span>
+                  <div className="text-engine-primary/80 group-hover:text-engine-primary transition-colors flex-shrink-0">
+                    {item.icon}
+                  </div>
                   <h3 className="text-white font-medium text-sm leading-tight">{item.title}</h3>
                 </motion.div>
               ))}
@@ -350,7 +391,7 @@ function App() {
         </div>
       </section>
       
-{/* --- FOOTER --- */}
+      {/* --- FOOTER ATUALIZADO --- */}
       <footer className="bg-[#1a1a1a] text-white pt-16 pb-8 border-t border-zinc-800 font-sans">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -376,7 +417,7 @@ function App() {
               </ul>
             </div>
 
-            {/* COLUNA 3: CERTIFICAÇÕES (ATUALIZADA) */}
+            {/* COLUNA 3: CERTIFICAÇÕES */}
             <div>
                <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-6">CERTIFICAÇÕES</h4>
                <div className="flex flex-col gap-4">
@@ -413,7 +454,6 @@ function App() {
                 <li><a href="https://www.instagram.com/rdp.engenharia/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group"><svg className="h-4 w-4 text-white group-hover:text-engine-primary transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg><span>Instagram</span></a></li>
               </ul>
             </div>
-
           </div>
           <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-xs text-gray-500 text-center md:text-left">© {new Date().getFullYear()} RDP Engenharia - CNPJ: 21.632.581/0001-54 | <a href="#" className="hover:text-white">Política de Privacidade</a></div>
