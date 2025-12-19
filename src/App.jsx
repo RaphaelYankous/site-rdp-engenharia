@@ -419,7 +419,9 @@ function App() {
           </div>
 
           <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
-            <p>&copy; {new Date().getFullYear()} RDP Engenharia. Todos os direitos reservados.</p>
+            <p>&copy; {new Date().getFullYear()} RDP Soluções de Engenharia © 2023 - Todos os direitos reservados
+
+CNPJ: 21.632.581/0001-54</p>
             <p className="mt-2 md:mt-0 flex items-center gap-1">
               Desenvolvido por <a href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/" target="_blank" className="text-gray-500 hover:text-white transition font-medium">Raphael Yankous</a>
             </p>
