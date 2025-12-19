@@ -4,8 +4,8 @@ Este repositório contém o código-fonte do website institucional da **RDP Enge
 
 O projeto é uma **Landing Page** moderna, responsiva e de alta performance, projetada para destacar a expertise técnica da empresa e facilitar a conversão de clientes através de chamadas para ação (CTAs) estratégicas.
 
-![Preview do Site](./public/hero.jpg)
-*(Sugestão: Adicione um print real da tela inicial aqui se preferir)*
+<img width="1897" height="908" alt="image" src="https://github.com/user-attachments/assets/b0eee755-f61f-4c07-a800-f246c74b3a6c" />
+
 
 ## 🚀 Tecnologias Utilizadas
 
