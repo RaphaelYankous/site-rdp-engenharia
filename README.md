@@ -1,16 +1,48 @@
-# React + Vite
+# 🏗️ RDP Engenharia - Website Institucional
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém o código-fonte do website institucional da **RDP Engenharia**, desenvolvido para apresentar soluções em engenharia mecânica, adequação NR12 e segurança industrial.
 
-Currently, two official plugins are available:
+O projeto é uma **Landing Page** moderna, responsiva e de alta performance, projetada para destacar a expertise técnica da empresa e facilitar a conversão de clientes através de chamadas para ação (CTAs) estratégicas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Preview do Site](./public/hero.jpg)
+*(Sugestão: Adicione um print real da tela inicial aqui se preferir)*
 
-## React Compiler
+## 🚀 Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O projeto foi construído utilizando as seguintes tecnologias e bibliotecas:
 
-## Expanding the ESLint configuration
+* **[React](https://react.dev/)**: Biblioteca JavaScript para construção da interface de usuário.
+* **[Vite](https://vitejs.dev/)**: Build tool rápida para desenvolvimento frontend moderno.
+* **[Tailwind CSS](https://tailwindcss.com/)**: Framework de CSS utility-first para estilização ágil e responsiva.
+* **[Framer Motion](https://www.framer.com/motion/)**: Biblioteca para animações fluidas e transições de elementos.
+* **[Lucide React](https://lucide.dev/)**: Coleção de ícones leves e consistentes.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Funcionalidades
+
+* **Design Responsivo**: Adaptável para desktops, tablets e dispositivos móveis.
+* **Tema Dark Premium**: Estética visual moderna focada no setor industrial (Cores: Zinc-950 e Dourado/Amarelo).
+* **Seções Detalhadas**:
+    * **Hero**: Apresentação impactante com imagem de fundo e CTA.
+    * **Diferenciais**: Grid destacando os pontos fortes da empresa.
+    * **Serviços**: Seções detalhadas para NR12, Linha de Vida, Projetos e Laudos.
+    * **Parceiros**: Galeria de logos de clientes/parceiros.
+    * **Rodapé**: Links rápidos, contatos e certificações (CREA, NR12, NR11).
+* **Interatividade**:
+    * Menu Mobile animado.
+    * Botão flutuante do WhatsApp.
+    * Links de contato direto (E-mail e Telefone).
+    * Scroll suave entre as seções.
+
+## 📂 Estrutura do Projeto
+
+```bash
+├── public/              # Arquivos estáticos (Imagens, Logos, Favicon)
+├── src/
+│   ├── assets/          # Assets importados via JS
+│   ├── App.jsx          # Componente principal (Single Page)
+│   ├── index.css        # Configurações globais do Tailwind
+│   └── main.jsx         # Ponto de entrada da aplicação
+├── index.html           # HTML base
+├── tailwind.config.js   # Configuração do Tailwind CSS
+├── vite.config.js       # Configuração do Vite
+└── package.json         # Dependências e scripts
