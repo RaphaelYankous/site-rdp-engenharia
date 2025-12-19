@@ -419,12 +419,20 @@ function App() {
           </div>
 
           <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
-            <p>&copy; {new Date().getFullYear()} RDP Soluções de Engenharia © 2023 - Todos os direitos reservados
-
-CNPJ: 21.632.581/0001-54</p>
-            <p className="mt-2 md:mt-0 flex items-center gap-1">
-              Desenvolvido por <a href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/" target="_blank" className="text-gray-500 hover:text-white transition font-medium">Raphael Yankous</a>
+            <p>&copy; {new Date().getFullYear()} RDP Soluções de Engenharia © 2023 - Todos os direitos reservados CNPJ: 21.632.581/0001-54
             </p>
+          </div>
+                    <div className="mt-8 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end gap-1">
+              <span className="text-[10px] uppercase tracking-widest text-gray-600">Desenvolvido por</span>
+              <a 
+                href="https://www.linkedin.com/in/raphael-yankous-machado-clemente-7bb750191/"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="text-sm text-gray-400 hover:text-white transition-colors font-bold tracking-tight"
+                style={{ fontFamily: 'monospace' }}
+              >
+                {`< Raphael Yankous />`}
+              </a>
           </div>
         </div>
       </footer>
