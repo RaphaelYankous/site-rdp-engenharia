@@ -425,7 +425,7 @@ function App() {
                     <div className="mt-8 md:mt-0 md:absolute md:right-6 flex flex-col items-center md:items-end gap-1">
               <span className="text-[10px] uppercase tracking-widest text-gray-600">Desenvolvido por</span>
               <a 
-                href="https://https://dev-yankous.vercel.app/"
+                href="https://dev-yankous.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer" 
                 className="text-sm text-gray-400 hover:text-white transition-colors font-bold tracking-tight"
