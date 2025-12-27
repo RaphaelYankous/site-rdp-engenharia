@@ -327,7 +327,7 @@ function App() {
       <section className="py-24 bg-zinc-950 border-t border-white/5 relative z-10">
         <div className="container mx-auto px-6 text-center">
             <span className="text-gray-500 uppercase tracking-[0.2em] text-xs font-bold mb-8 block">Parceiros Estratégicos</span>
-            <div className="flex flex-wrap justify-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            <div className="flex flex-wrap justify-center gap-12 opacity-90  transition-all duration-500">
                 {["/image_29.png", "/image_22.png", "/image_15.png", "/image_38.png", "/image_33.png"].map((img, idx) => (
                     <img key={idx} src={img} alt="Cliente" className="h-12 w-auto object-contain hover:scale-110 transition duration-300"/>
                 ))}
